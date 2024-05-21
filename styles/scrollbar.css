@@ -1,0 +1,29 @@
+
+
+/* Estilização da barra de rolagem */
+::-webkit-scrollbar {
+    width: 12px; /* largura da barra de rolagem */
+  }
+  
+  /* Estilização do polegar da barra de rolagem */
+  ::-webkit-scrollbar-thumb {
+    background-color:#03318C; /* cor de fundo do polegar */
+    border-radius: 6px; /* bordas arredondadas do polegar */
+  }
+  
+  /* Estilização da barra de rolagem quando estiver em hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #3e40a1; /* cor de fundo do polegar ao passar o mouse por cima */
+  }
+  
+  /* Estilização da barra de rolagem de fundo */
+  ::-webkit-scrollbar-track {
+    background:rgb(177, 177, 165); /* cor de fundo da barra de rolagem */
+    border-radius: 6px; /* bordas arredondadas fundo da barra de rolagem */
+  }
+  
+  /* Estilização dos botões de seta da barra de rolagem */
+  ::-webkit-scrollbar-button {
+    display: none; /* oculta os botões de seta */
+  }
+

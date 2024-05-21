@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alura Geek</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="./styles/formulario.css">
+    <link rel="stylesheet" href="./styles/meus-produtos.css">
+    <link rel="stylesheet" href="./styles/scrollbar.css">
+</head>
+<body>
+    <header>
+        <img src="./assets/Logo.png" alt="logo da marca">
+    </header>
+    <main class="main__container">
+        
+        <div class="sectio_menu">
+            <h1 class="add__produto">MEUS PRODUTOS</h1>
+            <section class="card__section">
+            </section>
+        </div>
+        <div class="main__add__produtos">
+            <span class="add__produto">ADICIONAR <br>PRODUTO?</span>
+            <form class="formulario">
+                <fieldset>
+                    <label class="etiqueta" for="nome"></label>
+                    <input placeholder="Nome..." type="text" name="nome" id="nome" class="input nome" minlength="4" required>
+                    <span class="mensagem__erro"></span>
+                </fieldset>
+                <fieldset>
+                    <label class="etiqueta" for="preco"></label>
+                    <input placeholder="Preço..." type="text" name="preco" id="preco" class="input preco" minlength="4" required>
+                    <span class="mensagem__erro"></span>
+                </fieldset>
+                <fieldset>
+                    <label class="etiqueta" for="imagem"></label>
+                    <input placeholder="Imagem..." type="url" name="imagem" id="imagem" class="input imagem" minlength="4" required>
+                    <span class="mensagem__erro"></span>
+                </fieldset>
+                <div class="botoes">
+                    <input class="botao enviar" type="submit" name="enviar" id="enviar" value="Guardar">
+                    <input class="botao excluir"type="reset" name="excluir" id="excluir" value="Limpar">
+                </div>
+          </form>
+        </div>
+    </main>
+    <footer>
+        <img src="assets/Logo.png" alt="logo da marca">
+        <span>Desenvolvido por: Lana Lima</span>
+    </footer>
+    <script src="js/cadastro.js" type="module"></script>
+    <script type="module" src="js/meus-produtos.js"></script>
+</body>
+</html>
