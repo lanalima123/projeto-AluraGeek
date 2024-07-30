@@ -23,6 +23,21 @@ async function produtosAdicionados(){
 export{
     produtosAdicionados
 }*/
+function controiCard(imagem, name,valor,id){
+    const produtos = document.createElement("div")
+    produtos.classList.add('main__meus__produtos')
+    produtos.innerHTML = `<div class="card">
+    <img src="${imagem}" alt="Imagen del producto">
+    <div class="card-container--info">
+        <p>${name}</p>
+        <div class="card-container--value">
+            <p>$ ${valor} </p>
+            <button class="apagar" id="${id}"><img src="./assets/lixeira-de-reciclagem.png"  alt="Ícono de excluir"></button>
+        </div>
+    </div>
+</div>`
+return produtos
+}
 async function produtosAdicionados() {
     // Espera a resolução da chamada da API e armazena o resultado em apiArray
     const apiArray = await API.api();
@@ -35,57 +50,24 @@ async function produtosAdicionados() {
 
     // Itera sobre cada produto no array retornado pela API
     apiArray.forEach(produto => {
-        // Cria os elementos HTML dinamicamente
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('main__meus__produtos');
+        section.appendChild(controiCard(produto.imagem, produto.name, produto.valor,produto.id))
+        const bt = document.getElementById(produto.id)
+        bt.addEventListener("click", ()=>{
+            const pergunta = confirm('Tem certeza que deseja excluir esse produto?');
 
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card');
-
-        const img = document.createElement('img');
-        img.src = produto.imagem;
-        img.alt = 'Imagen del producto';
-
-        const infoDiv = document.createElement('div');
-        infoDiv.classList.add('card-container--info');
-
-        const productName = document.createElement('p');
-        productName.textContent = produto.name;
-
-        const valueDiv = document.createElement('div');
-        valueDiv.classList.add('card-container--value');
-
-        const productValue = document.createElement('p');
-        productValue.textContent = `$ ${produto.valor}`;
-
-        const deleteButton = document.createElement('button');
-        deleteButton.classList.add('apagar');
-        deleteButton.id = produto.id;
-        deleteButton.innerHTML = '<img src="./assets/lixeira-de-reciclagem.png" alt="Ícono de excluir">';
-
-
-    valueDiv.appendChild(productValue);
-    valueDiv.appendChild(deleteButton);
-    infoDiv.appendChild(productName);
-    infoDiv.appendChild(valueDiv);
-    cardDiv.appendChild(img);
-    cardDiv.appendChild(infoDiv);
-    productDiv.appendChild(cardDiv);
-    section.appendChild(productDiv);
-    const botao = document.getElementById(produto.id)
-        // Adiciona um event listener para apagar o cartão e fazer a requisição DELETE
-        botao.addEventListener('click', async function(){
-          const pergunta =   prompt('tem certeza que deseja excluir esse produto?')
-            if(pergunta == "sim"){await API.deleteProdutos(produto.id)
+            if (pergunta) {
+                // O usuário clicou em "Sim"
+                console.log('Produto excluído.');
+                let nome =[produto.name, produto.valor, produto.imagem, produto.id]
+                
+                console.log(nome)
+            } else {
+                // O usuário clicou em "Não"
+                console.log('Ação cancelada.');
             }
-            
+
         })
-           
-
-    // Monta a estrutura do cartão
-    
-    });
 }
+)
 
-// Chama a função para adicionar os produtos
-produtosAdicionados();
+}
