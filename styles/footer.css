@@ -12,7 +12,6 @@ footer{
 @media(max-width: 834px) {
     footer{
         z-index: -1;
-        height: 350px;
     }
     footer img{
         display: none;
